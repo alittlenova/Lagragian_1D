@@ -1,0 +1,391 @@
+#
+# Generated from file h2o2mech_Lietal_2003.dat
+# by ck2cti on Fri Mar 07 08:31:53 2008
+#
+# Transport data from file h2o2tran_Lietal_2003.dat.
+
+units(length = "cm", time = "s", quantity = "mol", act_energy = "cal/mol")
+
+
+ideal_gas(name = "gas",
+      elements = " H  O  N  C  Ar  He ",
+      species = """ H2  O2  H2O  H  O  OH  HO2  H2O2  AR  N2 
+                   HE  CO  CO2 """,
+      reactions = "all",
+      transport = "Mix",
+      initial_state = state(temperature = 300.0,
+                        pressure = OneAtm)    )
+
+
+
+#-------------------------------------------------------------------------------
+#  Species data 
+#-------------------------------------------------------------------------------
+
+species(name = "H2",
+    atoms = " H:2 ",
+    thermo = (
+       NASA( [  300.00,  1000.00], [ 3.298124310E+000,  8.249441740E-004, 
+              -8.143015290E-007, -9.475434330E-011,  4.134872240E-013,
+              -1.012520870E+003, -3.294094090E+000] ),
+       NASA( [ 1000.00,  5000.00], [ 2.991423370E+000,  7.000644110E-004, 
+              -5.633828690E-008, -9.231578180E-012,  1.582751790E-015,
+              -8.350339970E+002, -1.355110170E+000] )
+             ),
+    transport = gas_transport(
+                     geom = "linear",
+                     diam =     2.92,
+                     well_depth =    38.00,
+                     polar =     0.79,
+                     rot_relax =   280.00),
+    note = "121286"
+       )
+
+species(name = "O2",
+    atoms = " O:2 ",
+    thermo = (
+       NASA( [  300.00,  1000.00], [ 3.212936400E+000,  1.127486350E-003, 
+              -5.756150470E-007,  1.313877230E-009, -8.768553920E-013,
+              -1.005249020E+003,  6.034737590E+000] ),
+       NASA( [ 1000.00,  5000.00], [ 3.697578190E+000,  6.135196890E-004, 
+              -1.258841990E-007,  1.775281480E-011, -1.136435310E-015,
+              -1.233930180E+003,  3.189165590E+000] )
+             ),
+    transport = gas_transport(
+                     geom = "linear",
+                     diam =     3.46,
+                     well_depth =   107.40,
+                     polar =     1.60,
+                     rot_relax =     3.80),
+    note = "121386"
+       )
+
+species(name = "H2O",
+    atoms = " H:2  O:1 ",
+    thermo = (
+       NASA( [  300.00,  1000.00], [ 3.386842490E+000,  3.474982460E-003, 
+              -6.354696330E-006,  6.968581270E-009, -2.506588470E-012,
+              -3.020811330E+004,  2.590232850E+000] ),
+       NASA( [ 1000.00,  5000.00], [ 2.672145610E+000,  3.056292890E-003, 
+              -8.730260110E-007,  1.200996390E-010, -6.391617870E-015,
+              -2.989920900E+004,  6.862816810E+000] )
+             ),
+    transport = gas_transport(
+                     geom = "nonlinear",
+                     diam =     2.61,
+                     well_depth =   572.40,
+                     dipole =     1.84,
+                     rot_relax =     4.00),
+    note = "20387"
+       )
+
+species(name = "H",
+    atoms = " H:1 ",
+    thermo = (
+       NASA( [  300.00,  1000.00], [ 2.500000000E+000,  0.000000000E+000, 
+               0.000000000E+000,  0.000000000E+000,  0.000000000E+000,
+               2.547162700E+004, -4.601176080E-001] ),
+       NASA( [ 1000.00,  5000.00], [ 2.500000000E+000,  0.000000000E+000, 
+               0.000000000E+000,  0.000000000E+000,  0.000000000E+000,
+               2.547162700E+004, -4.601176380E-001] )
+             ),
+    transport = gas_transport(
+                     geom = "atom",
+                     diam =     2.05,
+                     well_depth =   145.00),
+    note = "120186"
+       )
+
+species(name = "O",
+    atoms = " O:1 ",
+    thermo = (
+       NASA( [  300.00,  1000.00], [ 2.946428780E+000, -1.638166490E-003, 
+               2.421031700E-006, -1.602843190E-009,  3.890696360E-013,
+               2.914764450E+004,  2.963994980E+000] ),
+       NASA( [ 1000.00,  5000.00], [ 2.542059660E+000, -2.755061910E-005, 
+              -3.102803350E-009,  4.551067420E-012, -4.368051500E-016,
+               2.923080270E+004,  4.920308110E+000] )
+             ),
+    transport = gas_transport(
+                     geom = "atom",
+                     diam =     2.75,
+                     well_depth =    80.00),
+    note = "120186"
+       )
+
+species(name = "OH",
+    atoms = " O:1  H:1 ",
+    thermo = (
+       NASA( [  200.00,  1000.00], [ 4.125305610E+000, -3.225449390E-003, 
+               6.527646910E-006, -5.798536430E-009,  2.062373790E-012,
+               3.346309130E+003, -6.904329600E-001] ),
+       NASA( [ 1000.00,  6000.00], [ 2.864728860E+000,  1.056504480E-003, 
+              -2.590827580E-007,  3.052186740E-011, -1.331958760E-015,
+               3.683628750E+003,  5.701640730E+000] )
+             ),
+    transport = gas_transport(
+                     geom = "linear",
+                     diam =     2.75,
+                     well_depth =    80.00),
+    note = "S 9/01"
+       )
+
+species(name = "HO2",
+    atoms = " H:1  O:2 ",
+    thermo = (
+       NASA( [  200.00,  1000.00], [ 4.301798010E+000, -4.749120510E-003, 
+               2.115828910E-005, -2.427638940E-008,  9.292251240E-012,
+               2.948080400E+002,  3.716662450E+000] ),
+       NASA( [ 1000.00,  3500.00], [ 4.017210900E+000,  2.239820130E-003, 
+              -6.336581500E-007,  1.142463700E-010, -1.079085350E-014,
+               1.118567130E+002,  3.785102150E+000] )
+             ),
+    transport = gas_transport(
+                     geom = "nonlinear",
+                     diam =     3.46,
+                     well_depth =   107.40,
+                     rot_relax =     1.00),
+    note = "L 5/89"
+       )
+
+species(name = "H2O2",
+    atoms = " H:2  O:2 ",
+    thermo = (
+       NASA( [  300.00,  1000.00], [ 3.388753650E+000,  6.569225810E-003, 
+              -1.485012580E-007, -4.625805520E-009,  2.471514750E-012,
+              -1.766314650E+004,  6.785363200E+000] ),
+       NASA( [ 1000.00,  5000.00], [ 4.573166850E+000,  4.336136390E-003, 
+              -1.474688820E-006,  2.348903570E-010, -1.431653560E-014,
+              -1.800696090E+004,  5.011369590E-001] )
+             ),
+    transport = gas_transport(
+                     geom = "nonlinear",
+                     diam =     3.46,
+                     well_depth =   107.40,
+                     rot_relax =     3.80),
+    note = "120186"
+       )
+
+species(name = "AR",
+    atoms = " Ar:1 ",
+    thermo = (
+       NASA( [  300.00,  1000.00], [ 2.500000000E+000,  0.000000000E+000, 
+               0.000000000E+000,  0.000000000E+000,  0.000000000E+000,
+              -7.453750000E+002,  4.366001000E+000] ),
+       NASA( [ 1000.00,  5000.00], [ 2.500000000E+000,  0.000000000E+000, 
+               0.000000000E+000,  0.000000000E+000,  0.000000000E+000,
+              -7.453750000E+002,  4.366001000E+000] )
+             ),
+    transport = gas_transport(
+                     geom = "atom",
+                     diam =     3.33,
+                     well_depth =   136.50),
+    note = "120186"
+       )
+
+species(name = "N2",
+    atoms = " N:2 ",
+    thermo = (
+       NASA( [  300.00,  1000.00], [ 3.298677000E+000,  1.408240000E-003, 
+              -3.963222000E-006,  5.641515000E-009, -2.444855000E-012,
+              -1.020900000E+003,  3.950372000E+000] ),
+       NASA( [ 1000.00,  5000.00], [ 2.926640000E+000,  1.487977000E-003, 
+              -5.684761000E-007,  1.009704000E-010, -6.753351000E-015,
+              -9.227977000E+002,  5.980528000E+000] )
+             ),
+    transport = gas_transport(
+                     geom = "linear",
+                     diam =     3.62,
+                     well_depth =    97.53,
+                     polar =     1.76,
+                     rot_relax =     4.00),
+    note = "121286"
+       )
+
+species(name = "HE",
+    atoms = " He:1 ",
+    thermo = (
+       NASA( [  300.00,  1000.00], [ 2.500000000E+000,  0.000000000E+000, 
+               0.000000000E+000,  0.000000000E+000,  0.000000000E+000,
+              -7.453750000E+002,  9.153488000E-001] ),
+       NASA( [ 1000.00,  5000.00], [ 2.500000000E+000,  0.000000000E+000, 
+               0.000000000E+000,  0.000000000E+000,  0.000000000E+000,
+              -7.453750000E+002,  9.153489000E-001] )
+             ),
+    transport = gas_transport(
+                     geom = "atom",
+                     diam =     2.58,
+                     well_depth =    10.20),
+    note = "120186"
+       )
+
+species(name = "CO",
+    atoms = " C:1  O:1 ",
+    thermo = (
+       NASA( [  300.00,  1000.00], [ 3.262452000E+000,  1.511941000E-003, 
+              -3.881755000E-006,  5.581944000E-009, -2.474951000E-012,
+              -1.431054000E+004,  4.848897000E+000] ),
+       NASA( [ 1000.00,  5000.00], [ 3.025078000E+000,  1.442689000E-003, 
+              -5.630828000E-007,  1.018581000E-010, -6.910952000E-015,
+              -1.426835000E+004,  6.108218000E+000] )
+             ),
+    transport = gas_transport(
+                     geom = "linear",
+                     diam =     3.65,
+                     well_depth =    98.10,
+                     polar =     1.95,
+                     rot_relax =     1.80),
+    note = "121286"
+       )
+
+species(name = "CO2",
+    atoms = " C:1  O:2 ",
+    thermo = (
+       NASA( [  300.00,  1000.00], [ 2.275725000E+000,  9.922072000E-003, 
+              -1.040911000E-005,  6.866687000E-009, -2.117280000E-012,
+              -4.837314000E+004,  1.018849000E+001] ),
+       NASA( [ 1000.00,  5000.00], [ 4.453623000E+000,  3.140169000E-003, 
+              -1.278411000E-006,  2.393997000E-010, -1.669033000E-014,
+              -4.896696000E+004, -9.553959000E-001] )
+             ),
+    transport = gas_transport(
+                     geom = "linear",
+                     diam =     3.76,
+                     well_depth =   244.00,
+                     polar =     2.65,
+                     rot_relax =     2.10),
+    note = "121286"
+       )
+
+
+
+#-------------------------------------------------------------------------------
+#  Reaction data 
+#-------------------------------------------------------------------------------
+
+#  Reaction 1
+# H2-O2 Chain Reactions 
+#  Hessler, J. Phys. Chem. A, 102:4517 (1998) 
+reaction(  "H + O2 <=> O + OH",  [3.54700E+015, -0.406, 16599])
+
+#  Reaction 2
+#  Sutherland et al., 21st Symposium, p. 929 (1986) 
+reaction(  "O + H2 <=> H + OH",  [5.08000E+004, 2.67, 6290])
+
+#  Reaction 3
+#  Michael and Sutherland, J. Phys. Chem. 92:3853 (1988) 
+reaction(  "H2 + OH <=> H2O + H",  [2.16000E+008, 1.51, 3430])
+
+#  Reaction 4
+#  Sutherland et al., 23rd Symposium, p. 51 (1990) 
+reaction(  "O + H2O <=> OH + OH",  [2.97000E+006, 2.02, 13400])
+
+#  Reaction 5
+# H2-O2 Dissociation Reactions 
+#  Tsang and Hampson, J. Phys. Chem. Ref. Data, 15:1087 (1986) 
+three_body_reaction( "H2 + M <=> H + H + M",  [4.57700E+019, -1.4, 104380],
+         efficiencies = " AR:0  CO:1.9  CO2:3.8  H2:2.5  H2O:12  HE:0 ")
+
+#  Reaction 6
+#  Tsang and Hampson, J. Phys. Chem. Ref. Data, 15:1087 (1986) 
+reaction(  "H2 + AR <=> H + H + AR",  [5.84000E+018, -1.1, 104380])
+
+#  Reaction 7
+reaction(  "H2 + HE <=> H + H + HE",  [5.84000E+018, -1.1, 104380])
+
+#  Reaction 8
+#  Tsang and Hampson, J. Phys. Chem. Ref. Data, 15:1087 (1986) 
+three_body_reaction( "O + O + M <=> O2 + M",  [6.16500E+015, -0.5, 0],
+         efficiencies = " AR:0  CO:1.9  CO2:3.8  H2:2.5  H2O:12  HE:0 ")
+
+#  Reaction 9
+#  Tsang and Hampson, J. Phys. Chem. Ref. Data, 15:1087 (1986) 
+reaction(  "O + O + AR <=> O2 + AR",  [1.88600E+013, 0, -1788])
+
+#  Reaction 10
+reaction(  "O + O + HE <=> O2 + HE",  [1.88600E+013, 0, -1788])
+
+#  Reaction 11
+#  Tsang and Hampson, J. Phys. Chem. Ref. Data, 15:1087 (1986) 
+three_body_reaction( "O + H + M <=> OH + M",  [4.71400E+018, -1, 0],
+         efficiencies = " AR:0.75  CO:1.9  CO2:3.8  H2:2.5  H2O:12  HE:0.75 ")
+
+#  Reaction 12
+#  Tsang and Hampson, J. Phys. Chem. Ref. Data, 15:1087 (1986) 
+# H+OH+M=H2O+M              2.212E+22 -2.00  0.000E+00 
+three_body_reaction( "H + OH + M <=> H2O + M",  [3.80000E+022, -2, 0],
+         efficiencies = " AR:0.38  CO:1.9  CO2:3.8  H2:2.5  H2O:12  HE:0.38 ")
+
+#  Reaction 13
+# Formation and Consumption of HO2 
+#  Cobos et al., J. Phys. Chem. 89:342 (1985) for kinf 
+#  Michael, et al., J. Phys. Chem. A, 106:5297 (2002) for k0 
+# ****************************************************************************** 
+#  MAIN BATH GAS IS N2 (comment this reaction otherwise) 
+falloff_reaction( "H + O2 (+ M) <=> HO2 (+ M)",
+         kf = [1.47500E+012, 0.6, 0],
+         kf0   = [6.36600E+020, -1.72, 524.8],
+         falloff = Troe(A = 0.8, T3 = 1e-030, T1 = 1e+030),
+         efficiencies = " CO:1.9  CO2:3.8  H2:2  H2O:11  O2:0.78 ")
+
+#  Reaction 14
+# ****************************************************************************** 
+#  MAIN BATH GAS IS AR OR HE (comment this reaction otherwise) 
+# H+O2(+M)=HO2(+M)      1.475E+12  0.60  0.00E+00 
+#     LOW/9.042E+19  -1.50  4.922E+02/ 
+#     TROE/0.5 1E-30  1E+30/ 
+#     H2/3.0/ H2O/16/ O2/1.1/ CO/2.7/ CO2/5.4/ HE/1.2/ 
+#  Tsang and Hampson, J. Phys. Chem. Ref. Data, 15:1087 (1986) [modified] 
+reaction(  "HO2 + H <=> H2 + O2",  [1.66000E+013, 0, 823])
+
+#  Reaction 15
+#  Tsang and Hampson, J. Phys. Chem. Ref. Data, 15:1087 (1986) [modified] 
+reaction(  "HO2 + H <=> OH + OH",  [7.07900E+013, 0, 295])
+
+#  Reaction 16
+#  Baulch et al., J. Phys. Chem. Ref Data, 21:411 (1992) 
+reaction(  "HO2 + O <=> O2 + OH",  [3.25000E+013, 0, 0])
+
+#  Reaction 17
+#  Keyser, J. Phys. Chem. 92:1193 (1988) 
+reaction(  "HO2 + OH <=> H2O + O2",  [2.89000E+013, 0, -497])
+
+#  Reaction 18
+# Formation and Consumption of H2O2 
+#  Hippler et al., J. Chem. Phys. 93:1755 (1990) 
+reaction(  "HO2 + HO2 <=> H2O2 + O2",  [4.20000E+014, 0, 11982],
+         options = ["duplicate"])
+
+#  Reaction 19
+reaction(  "HO2 + HO2 <=> H2O2 + O2",  [1.30000E+011, 0, -1629.3],
+         options = ["duplicate"])
+
+#  Reaction 20
+#  Brouwer et al., J. Chem. Phys. 86:6171 (1987) for kinf 
+#  Warnatz, J. in Combustion chemistry (1984) for k0 
+falloff_reaction( "H2O2 (+ M) <=> OH + OH (+ M)",
+         kf = [2.95100E+014, 0, 48430],
+         kf0   = [1.20200E+017, 0, 45500],
+         falloff = Troe(A = 0.5, T3 = 1e-030, T1 = 1e+030),
+         efficiencies = " AR:0.64  CO:1.9  CO2:3.8  H2:2.5  H2O:12  HE:0.64 ")
+
+#  Reaction 21
+#  Tsang and Hampson, J. Phys. Chem. Ref. Data, 15:1087 (1986) 
+reaction(  "H2O2 + H <=> H2O + OH",  [2.41000E+013, 0, 3970])
+
+#  Reaction 22
+#  Tsang and Hampson, J. Phys. Chem. Ref. Data, 15:1087 (1986) 
+reaction(  "H2O2 + H <=> HO2 + H2",  [4.82000E+013, 0, 7950])
+
+#  Reaction 23
+#  Tsang and Hampson, J. Phys. Chem. Ref. Data, 15:1087 (1986) 
+reaction(  "H2O2 + O <=> OH + HO2",  [9.55000E+006, 2, 3970])
+
+#  Reaction 24
+#  Hippler and Troe, J. Chem. Phys. Lett. 192:333 (1992) 
+reaction(  "H2O2 + OH <=> HO2 + H2O",  [1.00000E+012, 0, 0],
+         options = ["duplicate"])
+
+#  Reaction 25
+reaction(  "H2O2 + OH <=> HO2 + H2O",  [5.80000E+014, 0, 9557],
+         options = ["duplicate"])
